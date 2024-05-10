@@ -2,13 +2,12 @@ package com.educandoweb.course.entities;
 
 import java.io.Serializable;
 
+import com.educandoweb.course.entities.pk.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import com.educandoweb.course.entities.pk.OrderItemPK;
-
 
 @Entity
 @Table(name = "tb_order_item")
@@ -33,7 +32,7 @@ public class OrderItem implements Serializable {
 		this.price = price;
 	}
 	@JsonIgnore
-	public Order setOrder() {
+	public Order getOrder() {
 		return id.getOrder();
 	}
 	
@@ -41,9 +40,10 @@ public class OrderItem implements Serializable {
 		id.setOrder(order);
 	}
 	
-	public Product setProduct() {
+	public Product getProduct() {
 		return id.getProduct();
 	}
+	
 	
 	public void setProduct(Product product) {
 		id.setProduct(product);
